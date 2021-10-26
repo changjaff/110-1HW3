@@ -48,10 +48,7 @@ namespace _110_1HW3
 
 
                     }
-                    else
-                    {
-                        ia_Map[i, j] = 0;
-                    }
+                   
                 }
             }
 
@@ -73,10 +70,7 @@ namespace _110_1HW3
                         ia_Map[i-1, j+1] += total;
 
                     }
-                    else
-                    {
-                        ia_Map[i, j] = 0;
-                    }
+                    
                 }
             }
 
@@ -93,10 +87,7 @@ namespace _110_1HW3
                         ia_Map[i-1, j] += total;
 
                     }
-                    else
-                    {
-                        ia_Map[i, j] = 0;
-                    }
+                    
                 }
             }
 
