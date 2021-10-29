@@ -11,16 +11,7 @@ namespace _110_1HW3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int[,] ia_Map = new int[10, 10] { {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0},
-                                              {0,0,0,0,0,0,0,0,0,0}};
+            int[,] ia_Map = new int[10, 10];
             int[] ia_MIndex = new int[10] { 0, 7, 13, 28, 44, 62, 74, 75, 87, 90 };
 
 
@@ -30,7 +21,7 @@ namespace _110_1HW3
             Response.Write("<table  style = 'border:3px ; width:50%'>");
             for (int i = 0; i <= 9; i++)
             {
-                Response.Write("<tr style = 'border:1px solid black'>");
+                Response.Write("<tr style = 'border:1px'>");
                 for (int j = 0; j <= 9; j++)
                 {
                     if (ia_Map[i, j] == 0)
@@ -50,7 +41,7 @@ namespace _110_1HW3
             }
             Response.Write("</table>");
         }
-        public void SetBomb(int[,] ia_Map, int[] ia_MIndex)
+        public void SetBomb(int[,] ia_Map, int[] ia_MIndex) // 放置炸彈
         {
             for (int i = 0; i < ia_MIndex.Length; i++)
             {
@@ -59,27 +50,27 @@ namespace _110_1HW3
                 ia_Map[row, col] = -1;
             }
         }
-        public void Search(int[,] ia_Map)
+        public void Search(int[,] ia_Map)  //找尋炸彈 附近範圍
         {
-            if (ia_Map[0, 0] == -1)//左上角
+            if (ia_Map[0, 0] == -1)
             {
                 if (ia_Map[0, 1] != -1) ia_Map[0, 1] += 1;
                 if (ia_Map[1, 0] != -1) ia_Map[1, 0] += 1;
                 if (ia_Map[1, 1] != -1) ia_Map[1, 1] += 1;
             }
-            if (ia_Map[0, 9] == -1)//右上角
+            if (ia_Map[0, 9] == -1)
             {
                 if (ia_Map[0, 8] != -1) ia_Map[0, 8] += 1;
                 if (ia_Map[1, 9] != -1) ia_Map[1, 9] += 1;
                 if (ia_Map[1, 8] != -1) ia_Map[1, 8] += 1;
             }
-            if (ia_Map[9, 0] == -1)//左下角
+            if (ia_Map[9, 0] == -1)
             {
                 if (ia_Map[8, 0] != -1) ia_Map[8, 0] += 1;
                 if (ia_Map[8, 1] != -1) ia_Map[8, 1] += 1;
                 if (ia_Map[9, 1] != -1) ia_Map[9, 1] += 1;
             }
-            if (ia_Map[9, 9] == -1)//右下角
+            if (ia_Map[9, 9] == -1)
             {
                 if (ia_Map[8, 9] != -1) ia_Map[8, 9] += 1;
                 if (ia_Map[8, 8] != -1) ia_Map[8, 8] += 1;
@@ -87,7 +78,7 @@ namespace _110_1HW3
             }
             for (int i = 1; i <= 8; i++)
             {
-                if (ia_Map[0, i] == -1)//第一排 沒角落
+                if (ia_Map[0, i] == -1)
                 {
                     if (ia_Map[0, i - 1] != -1) ia_Map[0, i - 1] += 1;
                     if (ia_Map[0, i + 1] != -1) ia_Map[0, i + 1] += 1;
@@ -95,7 +86,7 @@ namespace _110_1HW3
                     if (ia_Map[1, i] != -1) ia_Map[1, i] += 1;
                     if (ia_Map[1, i + 1] != -1) ia_Map[1, i + 1] += 1;
                 }
-                if (ia_Map[9, i] == -1)//最後一排 沒角落
+                if (ia_Map[9, i] == -1)
                 {
                     if (ia_Map[9, i - 1] != -1) ia_Map[9, i - 1] += 1;
                     if (ia_Map[9, i + 1] != -1) ia_Map[9, i + 1] += 1;
@@ -103,7 +94,7 @@ namespace _110_1HW3
                     if (ia_Map[8, i] != -1) ia_Map[8, i] += 1;
                     if (ia_Map[8, i + 1] != -1) ia_Map[8, i + 1] += 1;
                 }
-                if (ia_Map[i, 0] == -1)//第一行 沒角落
+                if (ia_Map[i, 0] == -1)
                 {
                     if (ia_Map[i - 1, 0] != -1) ia_Map[i - 1, 0] += 1;
                     if (ia_Map[i + 1, 0] != -1) ia_Map[i + 1, 0] += 1;
@@ -111,7 +102,7 @@ namespace _110_1HW3
                     if (ia_Map[i, 1] != -1) ia_Map[i, 1] += 1;
                     if (ia_Map[i + 1, 1] != -1) ia_Map[i + 1, 1] += 1;
                 }
-                if (ia_Map[i, 9] == -1)//最後一行 沒角落
+                if (ia_Map[i, 9] == -1)
                 {
                     if (ia_Map[i - 1, 9] != -1) ia_Map[i - 1, 9] += 1;
                     if (ia_Map[i + 1, 9] != -1) ia_Map[i + 1, 9] += 1;
@@ -124,7 +115,7 @@ namespace _110_1HW3
             {
                 for (int j = 1; j <= 8; j++)
                 {
-                    if (ia_Map[i, j] == -1)//中間部分
+                    if (ia_Map[i, j] == -1)
                     {
                         if (ia_Map[i - 1, j - 1] != -1) ia_Map[i - 1, j - 1] += 1;
                         if (ia_Map[i - 1, j] != -1) ia_Map[i - 1, j] += 1;
