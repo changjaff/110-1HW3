@@ -87,7 +87,7 @@ namespace _110_1HW3
             }
             for (int i = 1; i <= 8; i++)
             {
-                if (ia_Map[0, i] == -1)//第一排沒角落
+                if (ia_Map[0, i] == -1)//第一排 沒角落
                 {
                     if (ia_Map[0, i - 1] != -1) ia_Map[0, i - 1] += 1;
                     if (ia_Map[0, i + 1] != -1) ia_Map[0, i + 1] += 1;
@@ -95,7 +95,7 @@ namespace _110_1HW3
                     if (ia_Map[1, i] != -1) ia_Map[1, i] += 1;
                     if (ia_Map[1, i + 1] != -1) ia_Map[1, i + 1] += 1;
                 }
-                if (ia_Map[9, i] == -1)//最後一排沒角落
+                if (ia_Map[9, i] == -1)//最後一排 沒角落
                 {
                     if (ia_Map[9, i - 1] != -1) ia_Map[9, i - 1] += 1;
                     if (ia_Map[9, i + 1] != -1) ia_Map[9, i + 1] += 1;
@@ -103,7 +103,7 @@ namespace _110_1HW3
                     if (ia_Map[8, i] != -1) ia_Map[8, i] += 1;
                     if (ia_Map[8, i + 1] != -1) ia_Map[8, i + 1] += 1;
                 }
-                if (ia_Map[i, 0] == -1)//第一行沒角落
+                if (ia_Map[i, 0] == -1)//第一行 沒角落
                 {
                     if (ia_Map[i - 1, 0] != -1) ia_Map[i - 1, 0] += 1;
                     if (ia_Map[i + 1, 0] != -1) ia_Map[i + 1, 0] += 1;
@@ -111,7 +111,7 @@ namespace _110_1HW3
                     if (ia_Map[i, 1] != -1) ia_Map[i, 1] += 1;
                     if (ia_Map[i + 1, 1] != -1) ia_Map[i + 1, 1] += 1;
                 }
-                if (ia_Map[i, 9] == -1)//最後一行沒角落
+                if (ia_Map[i, 9] == -1)//最後一行 沒角落
                 {
                     if (ia_Map[i - 1, 9] != -1) ia_Map[i - 1, 9] += 1;
                     if (ia_Map[i + 1, 9] != -1) ia_Map[i + 1, 9] += 1;
@@ -124,7 +124,7 @@ namespace _110_1HW3
             {
                 for (int j = 1; j <= 8; j++)
                 {
-                    if (ia_Map[i, j] == -1)//中間
+                    if (ia_Map[i, j] == -1)//中間部分
                     {
                         if (ia_Map[i - 1, j - 1] != -1) ia_Map[i - 1, j - 1] += 1;
                         if (ia_Map[i - 1, j] != -1) ia_Map[i - 1, j] += 1;
